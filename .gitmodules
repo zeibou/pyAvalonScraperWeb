@@ -1,0 +1,3 @@
+[submodule "pyAvalonScraper"]
+	path = pyAvalonScraper
+	url = https://github.com/zeibou/pyAvalonScraper.git
