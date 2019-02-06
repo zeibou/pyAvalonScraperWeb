@@ -65,7 +65,8 @@ def logs(request):
     filter = Filter(3000, 10000, 750)
     for building in Scraper.avalon_buildings:
         for log in Alerter.get_update_logs(building, filter):
-            updates.append(UpdateItem(building, log))
+            if log.updates and (log.updates.added or log.updates.removed or log.updates.changed):
+                updates.append(UpdateItem(building, log))
 
     return render(request, 'histo/logs.html', {'updates' : sorted(updates, key=lambda x : x.updateLog.date_after.replace(tzinfo=pytz.UTC) , reverse=True)})
 
