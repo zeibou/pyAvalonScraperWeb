@@ -1,0 +1,9 @@
+{% include "histo/header.html" %}
+{% load spacify_filter %}
+
+<h2>Histo:</h2>
+{% for item in items %}
+<h3>{{item.apt.number}} - {{item.apt.bed}} beds - {{item.apt.sq_footage}} sq ft - ${{item.apt.price}} - availability: {{item.apt.avail_date}}</h3>
+<img src="data:image/png;base64, {{item.graphic_b64 | safe}}"><br>
+{% endfor %}
+yeah...

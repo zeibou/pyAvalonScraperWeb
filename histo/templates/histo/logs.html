@@ -1,0 +1,23 @@
+{% include "histo/header.html" %}
+{% load spacify_filter %}
+
+<h2>Updates:</h2>
+{% for item in updates %}
+    <h3>{{item.building.name | title}}  -   {{item.updateLog.date_before}} => {{item.updateLog.date_after}} :</h3>
+
+&nbsp;Added Apartments:<br>
+    {% for upd in item.updateLog.updates.added %}
+&nbsp;&nbsp;{{upd}}<br>
+    {% endfor %}
+<br>
+&nbsp;Removed Apartments:<br>
+    {% for upd in item.updateLog.updates.removed %}
+&nbsp;&nbsp;{{upd}}<br>
+    {% endfor %}
+<br>
+&nbsp;Updated Apartments:<br>
+    {% for upd in item.updateLog.updates.changed %}
+&nbsp;&nbsp;{{upd}}<br>
+    {% endfor %}
+<br>
+{% endfor %}

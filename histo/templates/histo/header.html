@@ -1,0 +1,10 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'histo/style.css' %}">
+<header>
+<div class = "center">
+    <p>
+        <a href="{% url 'logs' %}"><button class="button"><b>Update Log</b></button></a>
+        <a href="{% url 'graphs' %}"><button class="button"><b>Histo Graphs</b></button></a>
+    </p>
+</div>
+</header>
