@@ -5,17 +5,26 @@
 {% for item in updates %}
     <h3>{{item.building.name | title}}  -   {{item.updateLog.date_before}} => {{item.updateLog.date_after}} :</h3>
 
+{%if item.updateLog.updates.added %}
+<br>
 &nbsp;Added Apartments:<br>
+{% endif %}
     {% for upd in item.updateLog.updates.added %}
 &nbsp;&nbsp;{{upd}}<br>
     {% endfor %}
+
+{%if item.updateLog.updates.removed %}
 <br>
 &nbsp;Removed Apartments:<br>
+{% endif %}
     {% for upd in item.updateLog.updates.removed %}
 &nbsp;&nbsp;{{upd}}<br>
     {% endfor %}
+
+{%if item.updateLog.updates.changed %}
 <br>
 &nbsp;Updated Apartments:<br>
+{% endif %}
     {% for upd in item.updateLog.updates.changed %}
 &nbsp;&nbsp;{{upd}}<br>
     {% endfor %}
